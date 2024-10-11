@@ -5,18 +5,40 @@ const answer1 = document.getElementById("option1");
 const answer2 = document.getElementById("option2");
 const answer3 = document.getElementById("option3");
 const answer4 = document.getElementById("option4");
+const buttonList = document.getElementById("buttons");
+
+buttonList.style.paddingLeft="30%";
+
+question.style.width="100%";
+question.style.textAlign="center";
+
 answer1.style.backgroundColor="white";
 answer1.style.fontWeight="bold";
 answer1.style.color="black";
+//answer1.style.padding="7% 20%";
+answer1.style.fontSize="250%";
+
 answer2.style.backgroundColor="white";
 answer2.style.fontWeight="bold";
 answer2.style.color="black";
+//answer2.style.padding="7% 20%";
+answer2.style.fontSize="250%";
+
 answer3.style.backgroundColor="white";
 answer3.style.fontWeight="bold";
 answer3.style.color="black";
+//answer3.style.padding="7% 20%";
+answer3.style.fontSize="250%";
+
 answer4.style.backgroundColor="white";
 answer4.style.fontWeight="bold";
 answer4.style.color="black";
+//answer4.style.padding="7% 20%";
+answer4.style.fontSize="250%";
+
+genQuestion.style.width="100%";
+genQuestion.style.padding="4% 0%";
+
 let termsArray = [];
 let wordList = [];
 let defList = [];
@@ -61,7 +83,7 @@ genQuestion.addEventListener("click", function() {
     let correct = Math.floor(Math.random() * termsArray.length);
     
     
-    console.log("correct " + correct);
+    //console.log("correct " + correct);
     let incorrect1 = Math.floor(Math.random() * termsArray.length);
     let incorrect2 = Math.floor(Math.random() * termsArray.length);
     let incorrect3 = Math.floor(Math.random() * termsArray.length);
@@ -168,7 +190,23 @@ genQuestion.addEventListener("click", function() {
         showDefinitions();
     });  
 });  
+let correctCount = 0;
+let wrongCount = 0;
+let correctHeader = document.getElementById("correctNum");
+let wrongHeader = document.getElementById("wrongNum");
 
-
-  
+let answerButtons = document.querySelectorAll(".answerbtns");
+answerButtons.forEach(btn => {
+    btn.addEventListener("click", function() {
+        if (btn.classList.contains("correct")) {
+            correctCount++;
+            console.log(correctCount);
+            correctHeader.innerText = "Correct: " + correctCount;
+        } else {
+            wrongCount++;
+            console.log(wrongCount);
+            wrongHeader.innerText = "Wrong: " + wrongCount;
+        }
+    })
+})
 
