@@ -6,9 +6,17 @@ const answer2 = document.getElementById("option2");
 const answer3 = document.getElementById("option3");
 const answer4 = document.getElementById("option4");
 answer1.style.backgroundColor="white";
+answer1.style.fontWeight="bold";
+answer1.style.color="black";
 answer2.style.backgroundColor="white";
+answer2.style.fontWeight="bold";
+answer2.style.color="black";
 answer3.style.backgroundColor="white";
+answer3.style.fontWeight="bold";
+answer3.style.color="black";
 answer4.style.backgroundColor="white";
+answer4.style.fontWeight="bold";
+answer4.style.color="black";
 let termsArray = [];
 let wordList = [];
 let defList = [];
@@ -37,9 +45,19 @@ inputBtn.addEventListener("click", function() {
 });
 genQuestion.addEventListener("click", function() {
     answer1.style.backgroundColor="white";
+
     answer2.style.backgroundColor="white";
     answer3.style.backgroundColor="white";
     answer4.style.backgroundColor="white";
+    
+    answer1.classList.remove("correct");
+    
+    answer2.classList.remove("correct");
+    
+    answer3.classList.remove("correct");
+    
+    answer4.classList.remove("correct");
+
     let correct = Math.floor(Math.random() * termsArray.length);
     
     
@@ -97,11 +115,14 @@ genQuestion.addEventListener("click", function() {
     answer1.addEventListener("click", function() {
         if (this.classList.contains("correct")) {
             console.log("correct");
-            this.style.backgroundColor="green";
+            this.style.backgroundColor="rgba(0,255,0,0.5)";
         }
         else {
             console.log("incorrect");
-            this.style.backgroundColor="red";
+            this.style.backgroundColor="rgba(255,0,0,0.5)";
+            let showAnswer = document.querySelector("correct");
+            showAnswer.style.backgroundColor="rgba(0,255,0,0.3)";
+            
             
         }
         showDefinitions();
@@ -110,33 +131,39 @@ genQuestion.addEventListener("click", function() {
     answer2.addEventListener("click", function() {
         if (this.classList.contains("correct")) {
             console.log("correct");
-            this.style.backgroundColor="green";
+            this.style.backgroundColor="rgba(0,255,0,0.5)";
         }
         else {
             console.log("incorrect");
-            this.style.backgroundColor="red";
+            this.style.backgroundColor="rgba(255,0,0,0.5)";
+            let showAnswer = document.querySelector("correct");
+            showAnswer.style.backgroundColor="rgba(0,255,0,0.3)";
         }
         showDefinitions();
     });  
     answer3.addEventListener("click", function() {
         if (this.classList.contains("correct")) {
             console.log("correct");
-            this.style.backgroundColor="green";
+            this.style.backgroundColor="rgba(0,255,0,0.5)";
         }
         else {
             console.log("incorrect");
-            this.style.backgroundColor="red";
+            this.style.backgroundColor="rgba(255,0,0,0.5)";
+            let showAnswer = document.querySelector("correct");
+            showAnswer.style.backgroundColor="rgba(0,255,0,0.3)";
         }
         showDefinitions();
     });  
     answer4.addEventListener("click", function() {
         if (this.classList.contains("correct")) {
             console.log("correct");
-            this.style.backgroundColor="green";
+            this.style.backgroundColor="rgba(0,255,0,0.5)";
         }
         else {
             console.log("incorrect");
-            this.style.backgroundColor="red";
+            this.style.backgroundColor="rgba(255,0,0,0.5)";
+            let showAnswer = document.querySelector("correct");
+            showAnswer.style.backgroundColor="rgba(0,255,0,0.3)";
         }
         showDefinitions();
     });  
